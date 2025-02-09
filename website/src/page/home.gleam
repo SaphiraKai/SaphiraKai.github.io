@@ -10,7 +10,7 @@ pub fn render() -> Element(a) {
           [
             #(
               "background-image",
-              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-secondary))",
+              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-primary), var(--hzn-secondary))",
             ),
             #("color", "transparent"),
             #("background-clip", "text"),

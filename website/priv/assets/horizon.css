@@ -40,3 +40,10 @@
 
   --hzn-round: 2em;
 }
+
+.hzn-badge {
+  color: var(--hzn-bg-darker);
+  background-color: var(--hzn-secondary);
+  padding: 0 1em;
+  border-radius: 100%;
+}

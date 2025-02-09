@@ -18,7 +18,7 @@ pub fn render() -> Element(a) {
       ],
       [element.text("Hi there!")],
     ),
-    html.h2([[#("color", "var(--hzn-secondary)")] |> attribute.style], [
+    html.h2([], [
       element.text("Whether you're interested in "),
       html.span([[#("color", "var(--hzn-secondary)")] |> attribute.style], [
         element.text("programming stuff"),

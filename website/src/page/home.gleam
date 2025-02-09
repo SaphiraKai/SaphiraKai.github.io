@@ -10,7 +10,7 @@ pub fn render() -> Element(a) {
           [
             #(
               "background-image",
-              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-primary), var(--hzn-secondary))",
+              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-primary), var(--hzn-accent))",
             ),
             #("color", "transparent"),
             #("background-clip", "text"),
@@ -19,7 +19,7 @@ pub fn render() -> Element(a) {
         ],
         [element.text("Saphira")],
       ),
-      html.span([[#("color", "var(--hzn-accent)")] |> attribute.style], [
+      html.span([[#("color", "var(--hzn-secondary)")] |> attribute.style], [
         element.text("Kai"),
       ]),
     ]),

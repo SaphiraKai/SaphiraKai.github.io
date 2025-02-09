@@ -1,0 +1,42 @@
+:root {
+  --hzn-primary: "#FF8FB4";
+  --hzn-secondary: "#99AFFF";
+  --hzn-accent: "#FFF08F";
+
+  --hzn-bg-darker: "#1A202E";
+  --hzn-bg-main: "#232A3E";
+  --hzn-bg-lighter: "#353F5D";
+  --hzn-bg-lightest: "#353F5D";
+
+  --hzn-text: "#C2CFFF";
+
+  --hzn-pink: "#FF8FB4";
+  --hzn-pink-dark: "#B86F86";
+  --hzn-green: "#94FFB7";
+  --hzn-green-dark: "#70B987";
+  --hzn-yellow: "#FFF08F";
+  --hzn-yellow-dark: "#B8AE6F";
+  --hzn-blue: "#99AFFF";
+  --hzn-blue-dark: "#7181BB";
+  --hzn-purple: "#E294FF";
+  --hzn-purple-dark: "#A570B9";
+  --hzn-cyan: "#97F9FF";
+  --hzn-cyan-dark: "#70B6BA";
+
+  --hzn-fade-ps-0: "#FF8FB4";
+  --hzn-fade-ps-1: "#FF978F";
+  --hzn-fade-ps-2: "#FFC38F";
+  --hzn-fade-ps-3: "#FFF08F";
+
+  --hzn-fade-pa-0: "#FF8FB4";
+  --hzn-fade-pa-1: "#FF92FB";
+  --hzn-fade-pa-2: "#C196FF";
+  --hzn-fade-pa-3: "#99AFFF";
+
+  --hzn-fade-as-0: "#FFF08F";
+  --hzn-fade-as-1: "#A4FF92";
+  --hzn-fade-as-2: "#96FFEB";
+  --hzn-fade-as-3: "#99AFFF";
+
+  --hzn-round: 2em;
+}

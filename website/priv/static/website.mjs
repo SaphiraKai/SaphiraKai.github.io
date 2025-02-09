@@ -47,8 +47,8 @@ var List = class {
     return length2;
   }
 };
-function prepend(element2, tail) {
-  return new NonEmpty(element2, tail);
+function prepend(element3, tail) {
+  return new NonEmpty(element3, tail);
 }
 function toList(elements2, tail) {
   return List.fromArray(elements2, tail);
@@ -893,6 +893,9 @@ var unequalDictSymbol = Symbol();
 
 // build/dev/javascript/gleam_stdlib/gleam_stdlib.mjs
 var Nil = void 0;
+function identity(x) {
+  return x;
+}
 function to_string(term) {
   return term.toString();
 }
@@ -1072,6 +1075,18 @@ var Text = class extends CustomType {
     this.content = content;
   }
 };
+var Element = class extends CustomType {
+  constructor(key, namespace, tag, attrs, children2, self_closing, void$) {
+    super();
+    this.key = key;
+    this.namespace = namespace;
+    this.tag = tag;
+    this.attrs = attrs;
+    this.children = children2;
+    this.self_closing = self_closing;
+    this.void = void$;
+  }
+};
 var Map2 = class extends CustomType {
   constructor(subtree) {
     super();
@@ -1100,27 +1115,27 @@ function do_element_list_handlers(elements2, handlers2, key) {
   return index_fold(
     elements2,
     handlers2,
-    (handlers3, element2, index3) => {
+    (handlers3, element3, index3) => {
       let key$1 = key + "-" + to_string(index3);
-      return do_handlers(element2, handlers3, key$1);
+      return do_handlers(element3, handlers3, key$1);
     }
   );
 }
 function do_handlers(loop$element, loop$handlers, loop$key) {
   while (true) {
-    let element2 = loop$element;
+    let element3 = loop$element;
     let handlers2 = loop$handlers;
     let key = loop$key;
-    if (element2 instanceof Text) {
+    if (element3 instanceof Text) {
       return handlers2;
-    } else if (element2 instanceof Map2) {
-      let subtree = element2.subtree;
+    } else if (element3 instanceof Map2) {
+      let subtree = element3.subtree;
       loop$element = subtree();
       loop$handlers = handlers2;
       loop$key = key;
     } else {
-      let attrs = element2.attrs;
-      let children2 = element2.children;
+      let attrs = element3.attrs;
+      let children2 = element3.children;
       let handlers$1 = fold(
         attrs,
         handlers2,
@@ -1139,11 +1154,63 @@ function do_handlers(loop$element, loop$handlers, loop$key) {
     }
   }
 }
-function handlers(element2) {
-  return do_handlers(element2, new_map(), "0");
+function handlers(element3) {
+  return do_handlers(element3, new_map(), "0");
+}
+
+// build/dev/javascript/lustre/lustre/attribute.mjs
+function attribute(name, value) {
+  return new Attribute(name, identity(value), false);
+}
+function style(properties) {
+  return attribute(
+    "style",
+    fold(
+      properties,
+      "",
+      (styles, _use1) => {
+        let name$1 = _use1[0];
+        let value$1 = _use1[1];
+        return styles + name$1 + ":" + value$1 + ";";
+      }
+    )
+  );
 }
 
 // build/dev/javascript/lustre/lustre/element.mjs
+function element(tag, attrs, children2) {
+  if (tag === "area") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "base") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "br") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "col") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "embed") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "hr") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "img") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "input") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "link") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "meta") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "param") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "source") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "track") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else if (tag === "wbr") {
+    return new Element("", "", tag, attrs, toList([]), false, true);
+  } else {
+    return new Element("", "", tag, attrs, children2, false, false);
+  }
+}
 function text(content) {
   return new Text(content);
 }
@@ -1532,16 +1599,16 @@ function diffKeyedChild(prevChild, child, el, stack, incomingKeyedChildren, keye
   stack.unshift({ prev: keyedChild, next: child, parent: el });
   return prevChild;
 }
-function* children(element2) {
-  for (const child of element2.children) {
+function* children(element3) {
+  for (const child of element3.children) {
     yield* forceChild(child);
   }
 }
-function* forceChild(element2) {
-  if (element2.subtree !== void 0) {
-    yield* forceChild(element2.subtree());
+function* forceChild(element3) {
+  if (element3.subtree !== void 0) {
+    yield* forceChild(element3.subtree());
   } else {
-    yield element2;
+    yield element3;
   }
 }
 
@@ -1827,7 +1894,7 @@ var NotABrowser = class extends CustomType {
 function application(init2, update, view) {
   return new App(init2, update, view, new None());
 }
-function element(html) {
+function element2(html) {
   let init2 = (_) => {
     return [void 0, none()];
   };
@@ -1849,15 +1916,58 @@ function start2(app, selector, flags) {
   );
 }
 
+// build/dev/javascript/lustre/lustre/element/html.mjs
+function h1(attrs, children2) {
+  return element("h1", attrs, children2);
+}
+function div(attrs, children2) {
+  return element("div", attrs, children2);
+}
+function span(attrs, children2) {
+  return element("span", attrs, children2);
+}
+
+// build/dev/javascript/website/page/home.mjs
+function render() {
+  return div(
+    toList([]),
+    toList([
+      h1(
+        toList([]),
+        toList([
+          span(
+            toList([
+              (() => {
+                let _pipe = toList([["color", "var(--hzn-primary)"]]);
+                return style(_pipe);
+              })()
+            ]),
+            toList([text("Saphira")])
+          ),
+          span(
+            toList([
+              (() => {
+                let _pipe = toList([["color", "var(--hzn-accent)"]]);
+                return style(_pipe);
+              })()
+            ]),
+            toList([text("Kai")])
+          )
+        ])
+      )
+    ])
+  );
+}
+
 // build/dev/javascript/website/website.mjs
 function main() {
-  let app = element(text("test"));
+  let app = element2(render());
   let $ = start2(app, "#app", void 0);
   if (!$.isOk()) {
     throw makeError(
       "let_assert",
       "website",
-      6,
+      8,
       "main",
       "Pattern match failed, no pattern matched the value.",
       { value: $ }

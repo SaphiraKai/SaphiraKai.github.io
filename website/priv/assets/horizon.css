@@ -51,6 +51,14 @@
   border-radius: 2em;
   border-width: 0.15em;
   border-style: solid;
+  transition-duration: 0.25s;
+}
+
+.hzn-badge:hover,
+.hzn-badge-pink:hover,
+.hzn-badge-blue:hover,
+.hzn-badge-yellow:hover {
+  color: var(--hzn-bg-main);
 }
 
 .hzn-badge-pink {
@@ -63,4 +71,16 @@
 
 .hzn-badge-yellow {
   border-color: var(--hzn-yellow);
+}
+
+.hzn-badge-pink:hover {
+  background-color: var(--hzn-pink);
+}
+
+.hzn-badge-blue:hover {
+  background-color: var(--hzn-blue);
+}
+
+.hzn-badge-yellow:hover {
+  background-color: var(--hzn-yellow);
 }

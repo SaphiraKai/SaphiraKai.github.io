@@ -71,7 +71,7 @@
 .hzn-badge-pink:active,
 .hzn-badge-blue:active,
 .hzn-badge-yellow:active {
-  transform: scale(0.9) translateY(0.5em);
+  transform: scale(0.9) translateY(0.25em);
 }
 
 .hzn-badge-pink {

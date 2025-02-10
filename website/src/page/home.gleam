@@ -4,17 +4,18 @@ import lustre/element/html
 
 pub fn render() -> Element(a) {
   html.div([attribute.style([#("user-select", "none")])], [
-    html.div([[#("width", "32em"), #("padding", "2em")] |> attribute.style], [
+    html.div([attribute.class("hzn-splash-text")], [
       html.h1(
         [
           [
+            #("width", "fit-content"),
+            #("margin-left", "2em"),
             #(
               "background-image",
               "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))",
             ),
             #("color", "transparent"),
             #("background-clip", "text"),
-            #("padding-left", "2em"),
           ]
           |> attribute.style,
         ],

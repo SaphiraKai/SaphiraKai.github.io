@@ -1942,24 +1942,20 @@ function render() {
     toList([style(toList([["user-select", "none"]]))]),
     toList([
       div(
-        toList([
-          (() => {
-            let _pipe = toList([["width", "32em"], ["padding", "2em"]]);
-            return style(_pipe);
-          })()
-        ]),
+        toList([class$("hzn-splash-text")]),
         toList([
           h1(
             toList([
               (() => {
                 let _pipe = toList([
+                  ["width", "fit-content"],
+                  ["margin-left", "2em"],
                   [
                     "background-image",
                     "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))"
                   ],
                   ["color", "transparent"],
-                  ["background-clip", "text"],
-                  ["padding-left", "2em"]
+                  ["background-clip", "text"]
                 ]);
                 return style(_pipe);
               })()

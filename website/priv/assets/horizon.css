@@ -99,3 +99,15 @@
 .hzn-badge-yellow:hover {
   background-color: var(--hzn-yellow);
 }
+
+.hzn-splash-text {
+  margin-left: 2em;
+  width: 32em;
+}
+
+@media only screen and (max-width: 600px) {
+  .hzn-splash-text {
+    margin-left: 1em;
+    width: 24em;
+  }
+}

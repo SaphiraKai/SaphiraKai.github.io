@@ -1176,6 +1176,9 @@ function style(properties) {
     )
   );
 }
+function class$(name) {
+  return attribute("class", name);
+}
 
 // build/dev/javascript/lustre/lustre/element.mjs
 function element(tag, attrs, children2) {
@@ -1920,8 +1923,14 @@ function start2(app, selector, flags) {
 function h1(attrs, children2) {
   return element("h1", attrs, children2);
 }
+function h2(attrs, children2) {
+  return element("h2", attrs, children2);
+}
 function div(attrs, children2) {
   return element("div", attrs, children2);
+}
+function br(attrs) {
+  return element("br", attrs, toList([]));
 }
 function span(attrs, children2) {
   return element("span", attrs, children2);
@@ -1930,28 +1939,60 @@ function span(attrs, children2) {
 // build/dev/javascript/website/page/home.mjs
 function render() {
   return div(
-    toList([]),
+    toList([style(toList([["user-select", "none"]]))]),
     toList([
-      h1(
-        toList([]),
+      div(
         toList([
-          span(
+          (() => {
+            let _pipe = toList([["width", "32em"], ["padding", "2em"]]);
+            return style(_pipe);
+          })()
+        ]),
+        toList([
+          h1(
             toList([
               (() => {
-                let _pipe = toList([["color", "var(--hzn-primary)"]]);
+                let _pipe = toList([
+                  [
+                    "background-image",
+                    "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))"
+                  ],
+                  ["color", "transparent"],
+                  ["background-clip", "text"],
+                  ["padding-left", "2em"]
+                ]);
                 return style(_pipe);
               })()
             ]),
-            toList([text("Saphira")])
+            toList([text("Hi there!")])
           ),
-          span(
+          h2(
             toList([
               (() => {
-                let _pipe = toList([["color", "var(--hzn-accent)"]]);
+                let _pipe = toList([["line-height", "2"]]);
                 return style(_pipe);
               })()
             ]),
-            toList([text("Kai")])
+            toList([
+              text("Whether you're interested in "),
+              span(
+                toList([class$("hzn-badge-pink")]),
+                toList([text("programming stuff")])
+              ),
+              text(", "),
+              span(
+                toList([class$("hzn-badge-blue")]),
+                toList([text("electronic music")])
+              ),
+              text(", or neat little "),
+              span(
+                toList([class$("hzn-badge-yellow")]),
+                toList([text("webapps")])
+              ),
+              text(", there's probably something here you'll like."),
+              br(toList([])),
+              text("Probably.")
+            ])
           )
         ])
       )

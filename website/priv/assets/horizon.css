@@ -45,6 +45,7 @@
 .hzn-badge-pink,
 .hzn-badge-blue,
 .hzn-badge-yellow {
+  line-height: 1;
   display: inline-block;
   text-wrap: nowrap;
   color: var(--hzn-text);

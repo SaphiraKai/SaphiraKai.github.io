@@ -1944,24 +1944,7 @@ function render() {
       div(
         toList([class$("hzn-splash-text")]),
         toList([
-          h1(
-            toList([
-              (() => {
-                let _pipe = toList([
-                  ["width", "fit-content"],
-                  ["margin-left", "2em"],
-                  [
-                    "background-image",
-                    "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))"
-                  ],
-                  ["color", "transparent"],
-                  ["background-clip", "text"]
-                ]);
-                return style(_pipe);
-              })()
-            ]),
-            toList([text("Hi there!")])
-          ),
+          h1(toList([]), toList([text("Hi there!")])),
           h2(
             toList([
               (() => {

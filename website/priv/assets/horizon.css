@@ -106,8 +106,17 @@
   font-size: large;
 }
 
+.hzn-splash-text h1 {
+  width: fit-content;
+  margin: 0 2em;
+  background-image: linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent));
+  color: transparent;
+  background-clip: text;
+}
+
 @media only screen and (max-width: 600px) {
   .hzn-splash-text {
+    margin: 0;
     font-size: x-small;
   }
 }

@@ -5,22 +5,7 @@ import lustre/element/html
 pub fn render() -> Element(a) {
   html.div([attribute.style([#("user-select", "none")])], [
     html.div([attribute.class("hzn-splash-text")], [
-      html.h1(
-        [
-          [
-            #("width", "fit-content"),
-            #("margin-left", "2em"),
-            #(
-              "background-image",
-              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))",
-            ),
-            #("color", "transparent"),
-            #("background-clip", "text"),
-          ]
-          |> attribute.style,
-        ],
-        [element.text("Hi there!")],
-      ),
+      html.h1([], [element.text("Hi there!")]),
       html.h2([[#("line-height", "2")] |> attribute.style], [
         element.text("Whether you're interested in "),
         html.span([attribute.class("hzn-badge-pink")], [

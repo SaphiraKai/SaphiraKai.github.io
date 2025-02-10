@@ -53,7 +53,7 @@
   border-radius: 2em;
   border-width: 0.15em;
   border-style: solid;
-  transition-duration: 0.25s;
+  transition-duration: 0.15s;
 }
 
 .hzn-badge:focus,
@@ -71,7 +71,7 @@
 .hzn-badge-pink:active,
 .hzn-badge-blue:active,
 .hzn-badge-yellow:active {
-  transform: scale(0.8) translateY(-0.25em);
+  transform: scale(0.9) translateY(0.5em);
 }
 
 .hzn-badge-pink {

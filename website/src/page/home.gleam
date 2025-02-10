@@ -18,11 +18,7 @@ pub fn render() -> Element(a) {
           ]
           |> attribute.style,
         ],
-        [
-          element.text("Hi there!"),
-          html.br([]),
-          html.span([attribute.class("hzn-separator")], []),
-        ],
+        [element.text("Hi there!")],
       ),
       html.h2([[#("line-height", "2")] |> attribute.style], [
         element.text("Whether you're interested in "),

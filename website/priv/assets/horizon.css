@@ -104,6 +104,8 @@
   margin: 0 2em;
   width: 32em;
   font-size: large;
+  display: flex;
+  flex-direction: column;
 }
 
 .hzn-splash-text h1 {
@@ -123,6 +125,7 @@
     margin: 0;
     font-size: x-small;
     width: 100%;
+    align-items: center;
   }
 
   .hzn-splash-text h1 {

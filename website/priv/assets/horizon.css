@@ -48,7 +48,6 @@
   line-height: 1;
   display: inline-block;
   text-wrap: nowrap;
-  color: var(--hzn-text);
   padding: 0.2em 0.4em;
   border-radius: 2em;
   border-width: 0.15em;
@@ -76,14 +75,17 @@
 
 .hzn-badge-pink {
   border-color: var(--hzn-pink);
+  color: var(--hzn-pink);
 }
 
 .hzn-badge-blue {
   border-color: var(--hzn-blue);
+  color: var(--hzn-blue);
 }
 
 .hzn-badge-yellow {
   border-color: var(--hzn-yellow);
+  color: var(--hzn-yellow);
 }
 
 .hzn-badge-pink:hover {

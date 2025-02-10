@@ -4,47 +4,39 @@ import lustre/element/html
 
 pub fn render() -> Element(a) {
   html.div([attribute.style([#("user-select", "none")])], [
-    html.div(
-      [[#("background-color", "var(--hzn-bg-darker)")] |> attribute.style],
-      [
-        html.div(
-          [[#("width", "32em"), #("padding", "2em")] |> attribute.style],
+    html.div([[#("width", "32em"), #("padding", "2em")] |> attribute.style], [
+      html.h1(
+        [
           [
-            html.h1(
-              [
-                [
-                  #(
-                    "background-image",
-                    "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))",
-                  ),
-                  #("color", "transparent"),
-                  #("background-clip", "text"),
-                  #("padding-left", "2em"),
-                ]
-                |> attribute.style,
-              ],
-              [element.text("Hi there!")],
+            #(
+              "background-image",
+              "linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent))",
             ),
-            html.h2([[#("line-height", "2")] |> attribute.style], [
-              element.text("Whether you're interested in "),
-              html.span([attribute.class("hzn-badge-pink")], [
-                element.text("programming stuff"),
-              ]),
-              element.text(", "),
-              html.span([attribute.class("hzn-badge-blue")], [
-                element.text("electronic music"),
-              ]),
-              element.text(", or neat little "),
-              html.span([attribute.class("hzn-badge-yellow")], [
-                element.text("webapps"),
-              ]),
-              element.text(", there's probably something here you'll like."),
-              html.br([]),
-              element.text("Probably."),
-            ]),
-          ],
-        ),
-      ],
-    ),
+            #("color", "transparent"),
+            #("background-clip", "text"),
+            #("padding-left", "2em"),
+          ]
+          |> attribute.style,
+        ],
+        [element.text("Hi there!")],
+      ),
+      html.h2([[#("line-height", "2")] |> attribute.style], [
+        element.text("Whether you're interested in "),
+        html.span([attribute.class("hzn-badge-pink")], [
+          element.text("programming stuff"),
+        ]),
+        element.text(", "),
+        html.span([attribute.class("hzn-badge-blue")], [
+          element.text("electronic music"),
+        ]),
+        element.text(", or neat little "),
+        html.span([attribute.class("hzn-badge-yellow")], [
+          element.text("webapps"),
+        ]),
+        element.text(", there's probably something here you'll like."),
+        html.br([]),
+        element.text("Probably."),
+      ]),
+    ]),
   ])
 }

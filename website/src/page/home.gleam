@@ -26,12 +26,16 @@ pub fn render() -> Element(a) {
           element.text("programming stuff"),
         ]),
         element.text(", "),
-        html.span([attribute.class("hzn-badge-blue")], [element.text("music")]),
+        html.span([attribute.class("hzn-badge-blue")], [
+          element.text("electronic music"),
+        ]),
         element.text(", or neat little "),
         html.span([attribute.class("hzn-badge-yellow")], [
           element.text("webapps"),
         ]),
-        element.text(", there's probably something here for you."),
+        element.text(", there's probably something here you'll like."),
+        html.br([]),
+        element.text("Probably."),
       ]),
     ]),
   ])

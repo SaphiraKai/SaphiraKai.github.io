@@ -61,6 +61,14 @@
   color: var(--hzn-bg-main);
 }
 
+.hzn-badge:active,
+.hzn-badge-pink:active,
+.hzn-badge-blue:active,
+.hzn-badge-yellow:active {
+  border-width: 0;
+  transform: translateY(-0.25em);
+}
+
 .hzn-badge-pink {
   border-color: var(--hzn-pink);
 }

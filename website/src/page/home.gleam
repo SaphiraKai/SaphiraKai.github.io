@@ -18,7 +18,7 @@ pub fn render() -> Element(a) {
           ]
           |> attribute.style,
         ],
-        [element.text("Hi there!")],
+        [element.text("Hi there!"), html.br([]), element.text("~~")],
       ),
       html.h2([[#("line-height", "2")] |> attribute.style], [
         element.text("Whether you're interested in "),

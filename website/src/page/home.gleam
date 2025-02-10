@@ -4,7 +4,7 @@ import lustre/element/html
 
 pub fn render() -> Element(a) {
   html.div([attribute.style([#("user-select", "none")])], [
-    html.div([[#("width", "32em")] |> attribute.style], [
+    html.div([[#("width", "28em"), #("padding", "2em")] |> attribute.style], [
       html.h1(
         [
           [
@@ -14,6 +14,7 @@ pub fn render() -> Element(a) {
             ),
             #("color", "transparent"),
             #("background-clip", "text"),
+            #("padding-left", "2em"),
           ]
           |> attribute.style,
         ],

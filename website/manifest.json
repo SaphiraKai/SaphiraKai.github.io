@@ -2,6 +2,7 @@
   "name": "Saphira Kai's Homepage",
   "start_url": "https://saphirakai.github.io",
   "display": "minimal-ui",
+  "background_color": "#232A3E",
   "icons": [
     {
       "src": "priv/assets/slippy-512.png",

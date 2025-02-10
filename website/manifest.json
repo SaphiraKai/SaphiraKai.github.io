@@ -4,12 +4,12 @@
   "display": "minimal-ui",
   "icons": [
     {
-      "src": "/priv/assents/slippy-512.png",
+      "src": "priv/assets/slippy-512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/priv/assents/slippy-192.png",
+      "src": "priv/assets/slippy-192.png",
       "type": "image/png",
       "sizes": "192x192"
     }

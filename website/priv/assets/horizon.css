@@ -54,6 +54,10 @@
   transition-duration: 0.25s;
 }
 
+.hzn-badge:focus,
+.hzn-badge-pink:focus,
+.hzn-badge-blue:focus,
+.hzn-badge-yellow:focus,
 .hzn-badge:hover,
 .hzn-badge-pink:hover,
 .hzn-badge-blue:hover,

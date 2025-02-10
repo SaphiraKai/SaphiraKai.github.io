@@ -3,7 +3,7 @@ import lustre/element.{type Element}
 import lustre/element/html
 
 pub fn render() -> Element(a) {
-  html.div([], [
+  html.div([attribute.style([#("user-select", "none")])], [
     html.h1(
       [
         [

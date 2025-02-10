@@ -52,13 +52,13 @@
 }
 
 .hzn-badge-pink {
-  background-image: linear-gradient(30deg, var(--hzn-pink-dark), var(--hzn-pink));
+  background-image: linear-gradient(30deg, var(--hzn-pink), var(--hzn-pink-dark));
 }
 
 .hzn-badge-blue {
-  background-image: linear-gradient(30deg, var(--hzn-blue-dark), var(--hzn-blue));
+  background-image: linear-gradient(30deg, var(--hzn-blue), var(--hzn-blue-dark));
 }
 
 .hzn-badge-yellow {
-  background-image: linear-gradient(30deg, var(--hzn-yellow-dark), var(--hzn-yellow));
+  background-image: linear-gradient(30deg, var(--hzn-yellow), var(--hzn-yellow-dark));
 }

@@ -103,11 +103,12 @@
 .hzn-splash-text {
   margin-left: 2em;
   width: 32em;
+  font-size: large;
 }
 
 @media only screen and (max-width: 600px) {
   .hzn-splash-text {
     margin-left: 1em;
-    width: 24em;
+    font-size: x-small;
   }
 }

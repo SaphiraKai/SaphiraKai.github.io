@@ -20,15 +20,13 @@ pub fn render() -> Element(a) {
     ),
     html.h2([[#("line-height", "2")] |> attribute.style], [
       element.text("Whether you're interested in "),
-      html.span([attribute.class("hzn-badge-primary")], [
+      html.span([attribute.class("hzn-badge-pink")], [
         element.text("programming stuff"),
       ]),
       element.text(", "),
-      html.span([attribute.class("hzn-badge-secondary")], [
-        element.text("music"),
-      ]),
+      html.span([attribute.class("hzn-badge-blue")], [element.text("music")]),
       element.text(", or neat little "),
-      html.span([attribute.class("hzn-badge-accent")], [element.text("webapps")]),
+      html.span([attribute.class("hzn-badge-yellow")], [element.text("webapps")]),
       element.text(", there's probably something here for you."),
     ]),
   ])

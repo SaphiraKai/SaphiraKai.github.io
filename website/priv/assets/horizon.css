@@ -114,9 +114,26 @@
   background-clip: text;
 }
 
+.hzn-splash-text h2 {
+  line-height: 2;
+}
+
 @media only screen and (max-width: 600px) {
   .hzn-splash-text {
     margin: 0;
     font-size: x-small;
+    width: 100%;
+  }
+
+  .hzn-splash-text h1 {
+    margin: 0;
+    background-image: linear-gradient(30deg, var(--hzn-primary), var(--hzn-accent));
+    color: transparent;
+    background-clip: text;
+  }
+
+  .hzn-splash-text h2 {
+    line-height: 2;
+    width: 32em;
   }
 }

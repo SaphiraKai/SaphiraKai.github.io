@@ -6,7 +6,7 @@ pub fn render() -> Element(a) {
   html.div([attribute.style([#("user-select", "none")])], [
     html.div([attribute.class("hzn-splash-text")], [
       html.h1([], [element.text("Hi there!")]),
-      html.h2([[#("line-height", "2")] |> attribute.style], [
+      html.h2([], [
         element.text("Whether you're interested in "),
         html.span([attribute.class("hzn-badge-pink")], [
           element.text("programming stuff"),

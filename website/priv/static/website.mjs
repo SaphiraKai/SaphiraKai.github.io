@@ -1946,12 +1946,7 @@ function render() {
         toList([
           h1(toList([]), toList([text("Hi there!")])),
           h2(
-            toList([
-              (() => {
-                let _pipe = toList([["line-height", "2"]]);
-                return style(_pipe);
-              })()
-            ]),
+            toList([]),
             toList([
               text("Whether you're interested in "),
               span(

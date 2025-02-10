@@ -42,23 +42,23 @@
 }
 
 .hzn-badge,
-.hzn-badge-primary,
-.hzn-badge-secondary,
-.hzn-badge-accent {
+.hzn-badge-pink,
+.hzn-badge-blue,
+.hzn-badge-yellow {
   overflow: hidden;
   color: var(--hzn-bg-darker);
   padding: 0.2em 0.4em;
   border-radius: 2em;
 }
 
-.hzn-badge-primary {
-  background-color: var(--hzn-primary);
+.hzn-badge-pink {
+  background-color: linear-gradient(30deg, var(--hzn-pink-dark), var(--hzn-pink));
 }
 
-.hzn-badge-secondary {
-  background-color: var(--hzn-secondary);
+.hzn-badge-blue {
+  background-color: linear-gradient(30deg, var(--hzn-blue-dark), var(--hzn-blue));
 }
 
-.hzn-badge-accent {
-  background-color: var(--hzn-accent);
+.hzn-badge-yellow {
+  background-color: linear-gradient(30deg, var(--hzn-yellow-dark), var(--hzn-yellow));
 }

@@ -83,15 +83,12 @@
 
 .hzn-badge-pink:hover {
   background-color: var(--hzn-pink);
-  border-color: var(--hzn-pink-dark);
 }
 
 .hzn-badge-blue:hover {
   background-color: var(--hzn-blue);
-  border-color: var(--hzn-blue-dark);
 }
 
 .hzn-badge-yellow:hover {
   background-color: var(--hzn-yellow);
-  border-color: var(--hzn-yellow-dark);
 }

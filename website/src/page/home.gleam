@@ -18,15 +18,17 @@ pub fn render() -> Element(a) {
       ],
       [element.text("Hi there!")],
     ),
-    html.h2([], [
+    html.h2([[#("line-height", "2")] |> attribute.style], [
       element.text("Whether you're interested in "),
-      html.span([attribute.class("hzn-badge")], [
+      html.span([attribute.class("hzn-badge-primary")], [
         element.text("programming stuff"),
       ]),
       element.text(", "),
-      html.span([attribute.class("hzn-badge")], [element.text("music")]),
+      html.span([attribute.class("hzn-badge-secondary")], [
+        element.text("music"),
+      ]),
       element.text(", or neat little "),
-      html.span([attribute.class("hzn-badge")], [element.text("webapps")]),
+      html.span([attribute.class("hzn-badge-accent")], [element.text("webapps")]),
       element.text(", there's probably something here for you."),
     ]),
   ])

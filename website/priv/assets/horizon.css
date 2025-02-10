@@ -41,9 +41,24 @@
   --hzn-round: 2em;
 }
 
-.hzn-badge {
+.hzn-badge,
+.hzn-badge-primary,
+.hzn-badge-secondary,
+.hzn-badge-accent {
+  overflow: hidden;
   color: var(--hzn-bg-darker);
+  padding: 0.2em 0.4em;
+  border-radius: 2em;
+}
+
+.hzn-badge-primary {
+  background-color: var(--hzn-primary);
+}
+
+.hzn-badge-secondary {
   background-color: var(--hzn-secondary);
-  padding: 0 1em;
-  border-radius: 1em;
+}
+
+.hzn-badge-accent {
+  background-color: var(--hzn-accent);
 }

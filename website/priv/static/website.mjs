@@ -106,28 +106,28 @@ var Error = class extends Result {
 function isEqual(x, y) {
   let values2 = [x, y];
   while (values2.length) {
-    let a = values2.pop();
+    let a2 = values2.pop();
     let b = values2.pop();
-    if (a === b)
+    if (a2 === b)
       continue;
-    if (!isObject(a) || !isObject(b))
+    if (!isObject(a2) || !isObject(b))
       return false;
-    let unequal = !structurallyCompatibleObjects(a, b) || unequalDates(a, b) || unequalBuffers(a, b) || unequalArrays(a, b) || unequalMaps(a, b) || unequalSets(a, b) || unequalRegExps(a, b);
+    let unequal = !structurallyCompatibleObjects(a2, b) || unequalDates(a2, b) || unequalBuffers(a2, b) || unequalArrays(a2, b) || unequalMaps(a2, b) || unequalSets(a2, b) || unequalRegExps(a2, b);
     if (unequal)
       return false;
-    const proto = Object.getPrototypeOf(a);
+    const proto = Object.getPrototypeOf(a2);
     if (proto !== null && typeof proto.equals === "function") {
       try {
-        if (a.equals(b))
+        if (a2.equals(b))
           continue;
         else
           return false;
       } catch {
       }
     }
-    let [keys2, get] = getters(a);
-    for (let k of keys2(a)) {
-      values2.push(get(a, k), get(b, k));
+    let [keys2, get] = getters(a2);
+    for (let k of keys2(a2)) {
+      values2.push(get(a2, k), get(b, k));
     }
   }
   return true;
@@ -140,34 +140,34 @@ function getters(object3) {
     return [(x) => [...extra, ...Object.keys(x)], (x, y) => x[y]];
   }
 }
-function unequalDates(a, b) {
-  return a instanceof Date && (a > b || a < b);
+function unequalDates(a2, b) {
+  return a2 instanceof Date && (a2 > b || a2 < b);
 }
-function unequalBuffers(a, b) {
-  return a.buffer instanceof ArrayBuffer && a.BYTES_PER_ELEMENT && !(a.byteLength === b.byteLength && a.every((n, i) => n === b[i]));
+function unequalBuffers(a2, b) {
+  return a2.buffer instanceof ArrayBuffer && a2.BYTES_PER_ELEMENT && !(a2.byteLength === b.byteLength && a2.every((n, i) => n === b[i]));
 }
-function unequalArrays(a, b) {
-  return Array.isArray(a) && a.length !== b.length;
+function unequalArrays(a2, b) {
+  return Array.isArray(a2) && a2.length !== b.length;
 }
-function unequalMaps(a, b) {
-  return a instanceof Map && a.size !== b.size;
+function unequalMaps(a2, b) {
+  return a2 instanceof Map && a2.size !== b.size;
 }
-function unequalSets(a, b) {
-  return a instanceof Set && (a.size != b.size || [...a].some((e) => !b.has(e)));
+function unequalSets(a2, b) {
+  return a2 instanceof Set && (a2.size != b.size || [...a2].some((e) => !b.has(e)));
 }
-function unequalRegExps(a, b) {
-  return a instanceof RegExp && (a.source !== b.source || a.flags !== b.flags);
+function unequalRegExps(a2, b) {
+  return a2 instanceof RegExp && (a2.source !== b.source || a2.flags !== b.flags);
 }
-function isObject(a) {
-  return typeof a === "object" && a !== null;
+function isObject(a2) {
+  return typeof a2 === "object" && a2 !== null;
 }
-function structurallyCompatibleObjects(a, b) {
-  if (typeof a !== "object" && typeof b !== "object" && (!a || !b))
+function structurallyCompatibleObjects(a2, b) {
+  if (typeof a2 !== "object" && typeof b !== "object" && (!a2 || !b))
     return false;
   let nonstructural = [Promise, WeakSet, WeakMap, Function];
-  if (nonstructural.some((c) => a instanceof c))
+  if (nonstructural.some((c) => a2 instanceof c))
     return false;
-  return a.constructor === b.constructor;
+  return a2.constructor === b.constructor;
 }
 function makeError(variant, module, line, fn, message, extra) {
   let error = new globalThis.Error(message);
@@ -201,8 +201,8 @@ function hashByReference(o) {
   referenceMap.set(o, hash);
   return hash;
 }
-function hashMerge(a, b) {
-  return a ^ b + 2654435769 + (a << 6) + (a >> 2) | 0;
+function hashMerge(a2, b) {
+  return a2 ^ b + 2654435769 + (a2 << 6) + (a2 >> 2) | 0;
 }
 function hashString(s) {
   let hash = 0;
@@ -1179,6 +1179,12 @@ function style(properties) {
 function class$(name) {
   return attribute("class", name);
 }
+function href(uri) {
+  return attribute("href", uri);
+}
+function src(uri) {
+  return attribute("src", uri);
+}
 
 // build/dev/javascript/lustre/lustre/element.mjs
 function element(tag, attrs, children2) {
@@ -1381,7 +1387,7 @@ function createElementNode({ prev, next, dispatch, stack }) {
     handlersForEl = registeredHandlers.get(el);
   }
   const prevHandlers = canMorph ? new Set(handlersForEl.keys()) : null;
-  const prevAttributes = canMorph ? new Set(Array.from(prev.attributes, (a) => a.name)) : null;
+  const prevAttributes = canMorph ? new Set(Array.from(prev.attributes, (a2) => a2.name)) : null;
   let className = null;
   let style2 = null;
   let innerHTML = null;
@@ -1929,48 +1935,83 @@ function h2(attrs, children2) {
 function div(attrs, children2) {
   return element("div", attrs, children2);
 }
+function a(attrs, children2) {
+  return element("a", attrs, children2);
+}
 function br(attrs) {
   return element("br", attrs, toList([]));
 }
 function span(attrs, children2) {
   return element("span", attrs, children2);
 }
+function img(attrs) {
+  return element("img", attrs, toList([]));
+}
 
 // build/dev/javascript/website/page/home.mjs
-function render() {
+function splash_text() {
   return div(
-    toList([style(toList([["user-select", "none"]]))]),
+    toList([class$("hzn-splash-text")]),
     toList([
-      div(
-        toList([class$("hzn-splash-text")]),
+      h1(toList([]), toList([text("Hi there!")])),
+      h2(
+        toList([]),
         toList([
-          h1(toList([]), toList([text("Hi there!")])),
-          h2(
-            toList([]),
-            toList([
-              text("Whether you're interested in "),
-              span(
-                toList([class$("hzn-badge-pink")]),
-                toList([text("programming stuff")])
-              ),
-              text(", "),
-              span(
-                toList([class$("hzn-badge-blue")]),
-                toList([text("electronic music")])
-              ),
-              text(", or neat little "),
-              span(
-                toList([class$("hzn-badge-yellow")]),
-                toList([text("webapps")])
-              ),
-              text(", there's probably something here you'll like."),
-              br(toList([])),
-              text("Probably.")
-            ])
-          )
+          text("Whether you're interested in "),
+          span(
+            toList([class$("hzn-badge-pink")]),
+            toList([text("programming stuff")])
+          ),
+          text(", "),
+          span(
+            toList([class$("hzn-badge-blue")]),
+            toList([text("electronic music")])
+          ),
+          text(", or neat little "),
+          span(
+            toList([class$("hzn-badge-yellow")]),
+            toList([text("webapps")])
+          ),
+          text(", there's probably something here you'll like."),
+          br(toList([])),
+          text("Probably.")
         ])
       )
     ])
+  );
+}
+function social_bar() {
+  return div(
+    toList([class$("hzn-social-bar")]),
+    toList([
+      a(
+        toList([href("https://github.com/SaphiraKai")]),
+        toList([
+          img(toList([src("https://github.com/favicon.ico")])),
+          text("GitHub")
+        ])
+      ),
+      a(
+        toList([href("https://www.youtube.com/@saphirakai")]),
+        toList([
+          img(toList([src("https://youtube.com/favicon.ico")])),
+          text("YouTube")
+        ])
+      ),
+      a(
+        toList([href("https://hex.pm/users/saphirakai")]),
+        toList([
+          img(toList([src("https://hex.pm/favicon.ico")])),
+          text("Hex")
+        ])
+      )
+    ])
+  );
+}
+function render() {
+  return div(
+    toList([style(toList([["user-select", "none"]]))]),
+    toList([splash_text(), social_bar()])
   );
 }
 

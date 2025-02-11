@@ -1,3 +1,6 @@
+import biscotto
+import gleam/result
+import gleam/string
 import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
@@ -41,8 +44,12 @@ fn social_bar() -> Element(a) {
 }
 
 pub fn render() -> Element(a) {
+  let jar = biscotto.init()
+  let test_cookie = jar |> biscotto.get("test") |> string.inspect
+
   html.div([attribute.style([#("user-select", "none")])], [
     splash_text(),
     social_bar(),
+    element.text(test_cookie),
   ])
 }

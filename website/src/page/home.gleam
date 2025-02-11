@@ -47,6 +47,8 @@ pub fn render() -> Element(a) {
   let jar = biscotto.init()
   let test_cookie = jar |> biscotto.get("test") |> string.inspect
 
+  jar |> biscotto.put([#("test", "test value")])
+
   html.div([attribute.style([#("user-select", "none")])], [
     splash_text(),
     social_bar(),

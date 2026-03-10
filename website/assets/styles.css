@@ -1,0 +1,358 @@
+:root {
+  --primary: #FF439B;
+  --accent: #FAFF5C;
+  --background: #1D1C36;
+
+  --text-pink: #FFD0E6;
+  --text-blue: #D2D0FF;
+
+  --footer: #11101F;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+html {
+  scroll-padding-top: 17rem;
+}
+
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
+  font-family: "Lexend", sans-serif;
+  color: var(--text-blue);
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+#titlebar {
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  display: flex;
+  overflow: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  align-items: center;
+  width: 100vw;
+  box-sizing: border-box;
+  height: 4rem;
+  line-height: 2.5rem;
+  gap: 2rem;
+  background-color: var(--primary);
+  box-shadow: #000000A0 0 0 1.5rem;
+}
+
+#titlebar h1 {
+  text-wrap: nowrap;
+  display: none;
+  color: var(--background);
+}
+  
+#titlebar nav {
+  margin-left: auto;
+  width: 100%;
+}
+
+#titlebar nav ul {
+  display: flex;
+  flex-direction: row;
+  min-width: fit-content;
+  list-style-type: none;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+#titlebar.menu-open nav ul {
+  opacity: 100%;
+}
+
+#titlebar nav li {
+  align-self: end;
+}
+
+#titlebar nav ul a {
+  flex: 1 1 auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--text-pink);
+  transition: color 0.1s ease-out;
+}
+#titlebar nav ul a:hover,
+#titlebar nav ul a:focus {
+  color: white;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+h1, h2, h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  color: var(--text-pink)
+}
+
+h1 {
+  font-weight: 600;
+}
+
+#hero {
+  margin: 2rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#hero > * {
+  animation: fade-in ease 1s both;
+}
+
+#hero .button {
+  background-color: var(--background);
+  border: solid 2px var(--accent);
+  color: var(--accent);
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  width: fit-content;
+  transition: all 0.15s ease-out;
+  place-self: center;
+  text-decoration: none;
+  animation-delay: 0.5s;
+}
+#hero .button:hover,
+#hero .button:focus {
+  transform: translateY(-0.1rem);
+  color: var(--background);
+  background-color: var(--accent);
+}
+#hero .button:active {
+  transform: translateY(0.15rem);
+  opacity: 75%;
+}
+
+#hero aside {
+  order: -1;
+}
+
+#hero aside img {
+  border-radius: 1rem;
+}
+
+#mission, #vision {
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  padding: 1rem;
+  animation: fade-in ease 1s both;
+}
+
+#vision {
+  color: var(--text-blue);
+  animation-delay: 0.25s;
+}
+
+main section {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+
+main section h1,
+main section h2,
+main section h3 {
+  padding-left: 1rem;
+  line-height: 2rem;
+}
+
+main section h3 {
+  margin-bottom: 0;
+}
+
+main section:target {
+  animation: anchor-highlight 0.75s ease;
+}
+
+main section:target:has(.horizontal-sections) {
+  animation: anchor-highlight-solid 0.75s ease;
+}
+
+main section:has(.horizontal-sections) h1,
+main section:has(.horizontal-sections) h2,
+main section:has(.horizontal-sections) h3 {
+  padding-left: 0;
+  color: var(--background);
+  font-weight: bold;
+}
+
+main section:has(.horizontal-sections) a {
+  color: var(--background);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--accent);
+}
+
+main section:target h1,
+main section:target h2 {
+  color: white;
+  text-decoration: underline;
+  /* apparently this property is only supported on Firefox
+  text-decoration-inset: 0.75rem; */
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--accent);
+  padding-left: 2rem;
+}
+
+main section:target:has(.horizontal-sections) h1,
+main section:target:has(.horizontal-sections) h2 {
+  color: var(--background);
+}
+
+main section ul {
+  display: flex;
+  flex-direction: column;
+  line-height: 2rem;
+}
+
+main section:has(.horizontal-sections) {
+  margin: 0;
+  border-radius: 0;
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.horizontal-sections {
+  display: grid;
+  gap: 0 4rem;
+}
+
+.horizontal-sections div {
+  width: 100%;
+}
+
+.horizontal-sections ul {
+  padding-left: 1rem;
+}
+
+.horizontal-sections .spacer {
+  min-width: 2px;
+  min-height: 2px;
+  border-right: 2px var(--background) dashed;
+  opacity: 25%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-style: italic;
+  background-color: var(--footer);
+}
+
+@keyframes anchor-highlight {
+    0% { background-color: #ffffff20; }
+    100% { background-color: transparent; }
+}
+
+@keyframes anchor-highlight-solid {
+    0% { background-color: #ffffffa0; }
+    100% { background-color: var(--primary); }
+}
+
+@keyframes fade-in {
+  0% { transform: translateY(-2rem); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+  
+  #titlebar {
+    height: 4rem;
+    padding: 0 2rem;
+  }
+  #titlebar.menu-open {
+    height: 4rem;
+  }
+  
+  #titlebar nav ul {
+    margin-left: 4rem;
+    opacity: 100%;
+  }
+
+  #hero {
+    margin: 4rem;
+    grid-template-columns: 3fr 2fr;
+  }
+  
+  #hero aside {
+    order: 0;
+  }
+
+  main section {
+    max-width: 512px;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 2rem;
+  }
+
+  main section:has(.horizontal-sections) {
+    max-width: fit-content;
+    margin: 2rem;
+    border-radius: 2rem;
+  }
+
+  main section:not(:has(.horizontal-sections)) ul {
+    flex-direction: row;
+    gap: 4rem;
+    line-height: 2rem;
+  }
+
+  .to-right {
+    margin-left: auto;
+  }
+
+  .horizontal-sections {
+    grid-template-columns: 1fr 1fr;
+  }  
+  
+  .horizontal-sections div {
+    width: max-content;
+  }
+}
+
+@media (min-width: 1024px) {
+  #titlebar h1 {
+    display: block;
+  }
+
+  #hero {
+    margin: 8rem;
+  }
+  
+  .horizontal-sections {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+  main section {
+    max-width: 768px;
+  }
+}

@@ -1,4 +1,4 @@
-name = "website"
+name = "website_development"
 version = "1.0.0"
 
 # Fill out these fields if you intend to generate HTML documentation or publish
@@ -14,9 +14,8 @@ version = "1.0.0"
 
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
-lustre = ">= 4.6.3 and < 5.0.0"
-lustre_dev_tools = ">= 1.6.5 and < 2.0.0"
-biscotto = ">= 1.0.0 and < 2.0.0"
+lustre = ">= 5.4.0 and < 6.0.0"
+lustre_dev_tools = ">= 2.3.3 and < 3.0.0"
 
 [dev-dependencies]
 gleeunit = ">= 1.0.0 and < 2.0.0"

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saphira's Portfolio</title>
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header id="titlebar" class="menu-open">
+    <img src="./pfp.png" alt="Logo">
+    <h1>Saphira Walker</h1>
+    <nav class="overflow-scroll-gradient">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#resume">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- hero section -->
+    <div id="hero">
+      <div>
+        <h2 id="mission">Improving UX and DX through thoughtful design</h2>
+        <h2 id="vision">To make technology more accessible to all</h2>
+      </div>
+      <aside>
+        <img src="https://placehold.co/400/D2D0FF/1D1C36?text=Hero+image" alt="Hero image">
+      </aside>
+      <a class="button" href="#contact">Contact me</a>
+    </div>
+
+    <section id="about" class="slide-in to-right">
+      <h2>About</h2>
+      <p>
+        I'm Saphira, an experience-focused generalist developer with an eye to sharpen every tool I come across.
+      </p>
+      <p>
+        I'm passionate about implementing new, elegant technologies to solve real problems, big and small.
+        You'll often find me analyzing anything that was even <em>slightly</em> harder than it needed to be,
+        because I always want to know how it could have been fast, effortless, and intuitive.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="horizontal-sections">
+        <div>
+          <h3>Fields</h3>
+          <ul>
+            <li>Library API design</li>
+            <li>Web design</li>
+            <li>Full-stack web development</li>
+            <li>Internal tooling</li>
+            <li>Linux system configuration</li>
+            <li>GPU shaders</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Technologies</h3>
+          <ul>
+            <li><a target="_blank" href="https://hexdocs.pm/lustre/index.html">Lustre webapps</a></li>
+            <li><a target="_blank" href="https://svelte.dev">Svelte webapps</a></li>
+            <li><a target="_blank" href="https://gleam-wisp.github.io/wisp">Wisp webservers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <ul>
+            <li><a target="_blank" href="https://gleam.run">Gleam</a></li>
+            <li><a target="_blank" href="https://rust-lang.org">Rust</a></li>
+            <li>Bash/POSIX shell</li>
+            <li><a target="_blank" href="https://www.python.org">Python</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Paradigms</h3>
+          <ul>
+            <li>Functional</li>
+            <li>Immutable</li>
+            <li>Static type systems</li>
+            <li>Errors-as-values</li>
+            <li>Parse, Don't Validate</li>
+            <li>Recursive algorithms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="slide-in to-right">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <a target="_blank" href="https://github.com/SaphiraKai/knit">knit</a>
+          - String formatting library
+        </li>
+        <li>
+          <a target="_blank" href="https://github.com/SaphiraKai/humanise">humanise</a>
+          - Value formatting/conversion library
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="slide-in">
+      <h2>Contact me</h2>
+      <ul>
+        <li>kai.saphira@gmail.com</li>
+        <li><a target="_blank" href="https://github.com/SaphiraKai">GitHub</a></li>
+        <li><a target="_blank" href="https://hex.pm/users/saphirakai">Hex.pm</a></li>
+      </ul>
+    </section>
+
+    <section id="resume" class="slide-in to-right">
+      <h2>Resume</h2>
+      <p>You can download my resume and cover letter here:</p>
+      <ul>
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Cover letter</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Saphira Walker 2026
+  </footer>
+</body>
+
+</html>

@@ -1,1 +1,8 @@
-website/manifest.json
+{
+  "name": "Saphira Walker - Portfolio",
+  "start_url": "https://saphirakai.github.io",
+  "display": "minimal-ui",
+  "background_color": "#232A3E",
+  "icons": []
+}
+

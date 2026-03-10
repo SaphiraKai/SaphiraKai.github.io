@@ -41,15 +41,12 @@ a {
   position: sticky;
   top: 0;
   display: flex;
-  overflow: auto;
-  scrollbar-width: none;
   white-space: nowrap;
   align-items: center;
   width: 100vw;
   box-sizing: border-box;
   height: 4rem;
   line-height: 2.5rem;
-  gap: 2rem;
   background-color: var(--primary);
   box-shadow: #000000A0 0 0 1.5rem;
 }
@@ -61,8 +58,30 @@ a {
 }
   
 #titlebar nav {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
   margin-left: auto;
   width: 100%;
+}
+
+#titlebar nav::before {
+  position: absolute;
+  top: 0;
+  content: "";
+  height: 100%;
+  width: 2rem;
+  background: linear-gradient(to right, var(--primary), transparent);
+}
+
+#titlebar nav::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  height: 100%;
+  width: 2rem;
+  background: linear-gradient(to left, var(--primary), transparent);
 }
 
 #titlebar nav ul {
@@ -71,12 +90,8 @@ a {
   min-width: fit-content;
   list-style-type: none;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 2rem;
   margin: 0;
-  opacity: 0;
-}
-#titlebar.menu-open nav ul {
-  opacity: 100%;
 }
 
 #titlebar nav li {
@@ -288,9 +303,7 @@ footer {
   #titlebar {
     height: 4rem;
     padding: 0 2rem;
-  }
-  #titlebar.menu-open {
-    height: 4rem;
+    gap: 2rem;
   }
   
   #titlebar nav ul {

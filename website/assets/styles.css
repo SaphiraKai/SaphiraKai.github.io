@@ -70,7 +70,7 @@ a {
   top: 0;
   content: "";
   height: 100%;
-  width: 2rem;
+  width: 3rem;
   background: linear-gradient(to right, var(--primary), transparent);
 }
 
@@ -80,7 +80,7 @@ a {
   right: 0;
   content: "";
   height: 100%;
-  width: 2rem;
+  width: 3rem;
   background: linear-gradient(to left, var(--primary), transparent);
 }
 

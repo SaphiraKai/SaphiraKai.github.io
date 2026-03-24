@@ -2,11 +2,10 @@
   --primary: #FF439B;
   --accent: #FAFF5C;
   --background: #1D1C36;
+  --background-dark: #11101F;
 
   --text-pink: #FFD0E6;
   --text-blue: #D2D0FF;
-
-  --footer: #11101F;
 }
 
 img {
@@ -22,7 +21,7 @@ body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
-  background-color: var(--background);
+  background-color: var(--background-dark);
   font-family: "Lexend", sans-serif;
   color: var(--text-blue);
 }
@@ -125,7 +124,8 @@ h1 {
 }
 
 #hero {
-  margin: 2rem;
+  background-color: var(--background-dark);
+  padding: 2rem;
   display: grid;
   place-items: center;
   grid-template-columns: 1fr;
@@ -137,7 +137,7 @@ h1 {
 }
 
 #hero .button {
-  background-color: var(--background);
+  background-color: var(--background-dark);
   border: solid 2px var(--accent);
   color: var(--accent);
   font-family: "Ubuntu", sans-serif;
@@ -171,8 +171,7 @@ h1 {
 }
 
 #hero aside img {
-  max-height: unset;
-  max-width: unset;
+  object-fit: contain;
   top: 0;
   left: 0;
   right: 0;
@@ -195,6 +194,10 @@ h1 {
 #vision {
   color: var(--text-blue);
   animation-delay: 0.25s;
+}
+
+main {
+  background-color: var(--background);
 }
 
 main section {
@@ -289,10 +292,10 @@ main section:has(.horizontal-sections) {
 }
 
 footer {
-  padding: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
   font-style: italic;
-  background-color: var(--footer);
+  background-color: var(--background-dark);
 }
 
 @keyframes anchor-highlight {
@@ -347,8 +350,9 @@ footer {
   }
 
   #hero {
-    margin: 4rem;
     grid-template-columns: 3fr 2fr;
+    padding: 4rem;
+    padding-bottom: 12rem;
   }
   
   #hero aside {
@@ -356,9 +360,10 @@ footer {
   }
 
   #hero aside img {
-    height: 100%;
+    height: auto;
+    width: 100%;
   }
-
+  
   main section {
     max-width: 512px;
     padding: 2rem;
@@ -389,6 +394,10 @@ footer {
   .horizontal-sections div {
     width: max-content;
   }
+  
+  footer {
+    padding-bottom: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -396,10 +405,6 @@ footer {
     display: block;
   }
 
-  #hero {
-    margin: 8rem;
-  }
-  
   .horizontal-sections {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

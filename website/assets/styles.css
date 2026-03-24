@@ -165,9 +165,10 @@ h1 {
 #hero aside {
   display: flex;
   width: 100%;
-  height: 24rem;
+  height: 20rem;
   position: relative;
   order: -1;
+  perspective: 18cm;
 }
 
 #hero aside img {
@@ -177,10 +178,9 @@ h1 {
   right: 0;
   bottom: 0;
   margin: auto;
-  max-width: 100%;
   position: absolute;
   border-radius: 1rem;
-  animation: carousel ease 24s both infinite;
+  animation: carousel ease 32s both infinite;
   box-shadow: 0.5rem 1rem 2rem #00000050;
 }
 /* #hero aside:hover img { */
@@ -319,16 +319,19 @@ footer {
 @keyframes carousel {
   0% {
     z-index: 1;
-    transform: translateY(-2rem);
+    transform: translateY(-4rem) rotateX(15deg);
+    filter: blur(0);
     opacity: 0;
   }
   3%, 22% {
-    transform: translateY(0);
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0);
     opacity: 1;
   }
-  25%, 30% {
+  25% {
     z-index: 0;
-    transform: translateY(2rem);
+    transform: translateY(4rem) rotateX(-15deg);
+    filter: blur(0.5rem);
     opacity: 0;
   }
   100% {
@@ -360,11 +363,6 @@ footer {
   
   #hero aside {
     order: 0;
-  }
-
-  #hero aside img {
-    height: auto;
-    width: 100%;
   }
   
   main section {

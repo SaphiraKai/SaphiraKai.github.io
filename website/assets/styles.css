@@ -177,12 +177,15 @@ h1 {
   right: 0;
   bottom: 0;
   margin: auto;
-  height: 100%;
+  max-width: 100%;
   position: absolute;
   border-radius: 1rem;
   animation: carousel ease 24s both infinite;
   box-shadow: 0.5rem 1rem 2rem #00000050;
 }
+/* #hero aside:hover img { */
+  /* transform: scale2D(150%); */
+/* } */
 
 #mission, #vision {
   font-size: 1.75rem;

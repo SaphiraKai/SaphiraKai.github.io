@@ -50,18 +50,21 @@ a {
   box-shadow: #000000A0 0 0 1.5rem;
 }
 
+#titlebar img {
+  display: none;
+}
+
 #titlebar h1 {
   text-wrap: nowrap;
   display: none;
   color: var(--background);
 }
-  
+
 #titlebar nav {
   overflow-x: scroll;
   overflow-y: hidden;
   scrollbar-width: none;
   margin-left: auto;
-  width: 100%;
 }
 
 #titlebar nav::before {
@@ -89,7 +92,8 @@ a {
   min-width: fit-content;
   list-style-type: none;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 3rem;
+  gap: 2rem;
   margin: 0;
 }
 
@@ -99,13 +103,13 @@ a {
 
 #titlebar nav ul a {
   flex: 1 1 auto;
-  padding: 1rem;
   text-align: center;
   font-size: 1.15rem;
   text-decoration: none;
   color: var(--text-pink);
   transition: color 0.1s ease-out;
 }
+
 #titlebar nav ul a:hover,
 #titlebar nav ul a:focus {
   color: white;
@@ -113,7 +117,9 @@ a {
   text-decoration-thickness: 2px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   color: var(--text-pink)
@@ -124,25 +130,36 @@ h1 {
 }
 
 #hero {
+  display: flex;
+  flex-direction: column;
   background-color: var(--background-dark);
   padding: 2rem;
-  display: grid;
-  place-items: center;
-  grid-template-columns: 1fr;
+  margin: -1rem -1rem 0 -1rem;
+  height: calc(100vh - 4rem);
   gap: 2rem;
+  place-items: center;
+  box-sizing: border-box;
 }
 
-#hero > * {
+#hero div {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+#hero>* {
   animation: fade-in ease 1s both;
 }
 
 #hero .button {
+  white-space: nowrap;
   background-color: var(--background-dark);
   border: solid 2px var(--accent);
   color: var(--accent);
   font-family: "Ubuntu", sans-serif;
   font-size: 1.15rem;
   font-weight: 500;
+  margin-top: 4rem;
   padding: 0.5rem 0.75rem;
   border-radius: 2rem;
   width: fit-content;
@@ -151,21 +168,24 @@ h1 {
   text-decoration: none;
   animation-delay: 0.5s;
 }
+
 #hero .button:hover,
 #hero .button:focus {
   transform: translateY(-0.1rem);
   color: var(--background);
   background-color: var(--accent);
 }
+
 #hero .button:active {
   transform: translateY(0.15rem);
   opacity: 75%;
 }
 
 #hero aside {
+  box-sizing: border-box;
   display: flex;
   width: 100%;
-  height: 20rem;
+  min-height: 67vw;
   position: relative;
   order: -1;
   perspective: 18cm;
@@ -177,20 +197,20 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  margin: 0 auto;
   position: absolute;
   border-radius: 1rem;
   animation: carousel ease 32s both infinite;
   box-shadow: 0.5rem 1rem 2rem #00000050;
 }
+
 /* #hero aside:hover img { */
-  /* transform: scale2D(150%); */
+/* transform: scale2D(150%); */
 /* } */
 
-#mission, #vision {
-  font-size: 1.75rem;
+#mission,
+#vision {
   line-height: 2.5rem;
-  padding: 1rem;
   animation: fade-in ease 1s both;
 }
 
@@ -200,12 +220,15 @@ h1 {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
   background-color: var(--background);
 }
 
 main section {
   padding: 1rem;
-  margin: 1rem;
   border-radius: 1rem;
 }
 
@@ -272,6 +295,14 @@ main section:has(.horizontal-sections) {
   color: var(--background);
 }
 
+#about p {
+  font-size: 1.25rem;
+}
+
+#skills {
+  margin: -1rem;
+}
+
 .horizontal-sections {
   display: grid;
   gap: 0 4rem;
@@ -295,47 +326,79 @@ main section:has(.horizontal-sections) {
 }
 
 footer {
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   text-align: center;
   font-style: italic;
   background-color: var(--background-dark);
 }
 
 @keyframes anchor-highlight {
-    0% { background-color: #ffffff20; }
-    100% { background-color: transparent; }
+  0% {
+    background-color: #ffffff20;
+  }
+
+  100% {
+    background-color: transparent;
+  }
 }
 
 @keyframes anchor-highlight-solid {
-    0% { background-color: #ffffffa0; }
-    100% { background-color: var(--primary); }
+  0% {
+    background-color: #ffffffa0;
+  }
+
+  100% {
+    background-color: var(--primary);
+  }
 }
 
 @keyframes fade-in {
-  0% { transform: translateY(-2rem); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes carousel {
   0% {
     z-index: 1;
-    transform: translateY(-4rem) rotateX(15deg);
+    transform: translateY(-15%) rotateX(15deg);
     filter: blur(0);
     opacity: 0;
   }
-  3%, 22% {
+
+  3%,
+  22% {
     transform: translateY(0) rotateX(0deg);
     filter: blur(0);
     opacity: 1;
   }
+
   25% {
     z-index: 0;
-    transform: translateY(4rem) rotateX(-15deg);
+    transform: translateY(15%) rotateX(-15deg);
     filter: blur(0.5rem);
     opacity: 0;
   }
+
   100% {
     opacity: 0;
+  }
+}
+
+@media (min-width: 320px) {
+  #titlebar img {
+    display: block;
+  }
+
+  #mission,
+  #vision {
+    font-size: 1.75rem;
   }
 }
 
@@ -343,39 +406,47 @@ footer {
   html {
     scroll-padding-top: 6rem;
   }
-  
-  #titlebar {
-    height: 4rem;
-    padding: 0 2rem;
-    gap: 2rem;
+
+  #titlebar img {
+    margin-left: 2rem;
   }
-  
+
   #titlebar nav ul {
-    margin-left: 4rem;
     opacity: 100%;
+    gap: 4rem;
   }
 
   #hero {
-    grid-template-columns: 3fr 2fr;
+    flex-direction: row;
     padding: 4rem;
-    padding-bottom: 12rem;
-  }
-  
-  #hero aside {
-    order: 0;
-  }
-  
-  main section {
-    max-width: 512px;
-    padding: 2rem;
-    margin: 2rem;
-    border-radius: 2rem;
+    box-sizing: border-box;
+    margin: -2rem -2rem 0 -2rem;
   }
 
-  main section:has(.horizontal-sections) {
+  #hero aside {
+    margin-bottom: 4rem;
+    height: 100%;
+    order: 0;
+  }
+
+  #hero aside img {
+    margin: auto;
+  }
+
+  main {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  main section {
+    max-width: 512px;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  #skills {
     max-width: fit-content;
-    margin: 2rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
   }
 
   main section:not(:has(.horizontal-sections)) ul {
@@ -384,33 +455,42 @@ footer {
     line-height: 2rem;
   }
 
+  #skills {
+    margin: 0;
+  }
+
   .to-right {
     margin-left: auto;
   }
 
   .horizontal-sections {
     grid-template-columns: 1fr 1fr;
-  }  
-  
+  }
+
   .horizontal-sections div {
     width: max-content;
   }
-  
+
   footer {
-    padding-bottom: 2rem;
+    padding: 2rem 0;
   }
 }
 
 @media (min-width: 1024px) {
   #titlebar h1 {
+    margin: 0 -2rem 0 2rem;
     display: block;
   }
 
   .horizontal-sections {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  
+
   main section {
     max-width: 768px;
+  }
+
+  #hero aside img {
+    max-width: 33vw;
   }
 }

@@ -211,11 +211,11 @@ h3 {
 
 #hero .button {
   white-space: nowrap;
-  background-color: var(transparent);
-  border: solid 2px var(--accent-400);
-  color: var(--accent-400);
+  background-color: transparent;
+  border: solid 2px color-mix(in oklch, var(--accent-300), var(--accent-400));
+  color: color-mix(in oklch, var(--accent-300), var(--accent-400));
   font-family: "Ubuntu", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 500;
   margin-top: 4rem;
   padding: 0.5rem 0.75rem;
@@ -229,13 +229,13 @@ h3 {
 
 #hero .button:hover,
 #hero .button:focus {
-  transform: translateY(-0.1rem);
+  transform: translateY(-0.25rem);
   color: var(--neutral-800);
-  background-color: var(--accent-400);
+  background-color: color-mix(in oklch, var(--accent-300), var(--accent-400));
 }
 
 #hero .button:active {
-  transform: translateY(0.15rem);
+  transform: translateY(0.25rem);
   opacity: 67%;
 }
 
@@ -296,12 +296,11 @@ main section {
 
 main section h1::before,
 main section h2::before {
-  position: absolute;
   content: "¶";
   color: transparent;
   text-decoration: none;
   transition: color 0.1s ease-out;
-  transform: translateX(-1.5rem);
+  padding-right: 0.5rem;
 }
 
 main section h1:hover::before,
@@ -319,7 +318,7 @@ main section h2 a {
 
 main section h1 a:hover,
 main section h2 a:hover {
-  color: var(--accent-200);
+  color: color-mix(in oklch, var(--accent-100), var(--neutral-100), 50%);
   text-decoration: none;
 }
 
@@ -341,6 +340,11 @@ main section:target:has(.horizontal-sections) {
   animation: anchor-highlight-solid 0.75s ease;
 }
 
+main section:target:has(.horizontal-sections) h1 a,
+main section:target:has(.horizontal-sections) h2 a {
+  color: var(--neutral-700);
+}
+
 main section:has(.horizontal-sections) h3 {
   padding-left: 0;
   color: var(--neutral-700);
@@ -353,6 +357,12 @@ main section:has(.horizontal-sections) h3 a {
   padding-left: 0;
   color: var(--neutral-700);
   font-weight: bold;
+}
+
+main section:has(.horizontal-sections) h1 a:hover,
+main section:has(.horizontal-sections) h2 a:hover,
+main section:has(.horizontal-sections) h3 a:hover {
+  color: var(--neutral-600);
 }
 
 main section:has(.horizontal-sections) li a {
@@ -368,17 +378,12 @@ main section:has(.horizontal-sections) li:hover a {
 
 main section:target h1 a,
 main section:target h2 a {
-  color: var(--accent-100);
+  color: color-mix(in oklch, var(--accent-100), var(--neutral-100), 50%);
   text-decoration: underline;
   /* apparently this property is only supported on Firefox
   text-decoration-inset: 0.75rem; */
   text-decoration-thickness: 3px;
   text-decoration-color: var(--accent-300);
-}
-
-main section:target:has(.horizontal-sections) h1 a,
-main section:target:has(.horizontal-sections) h2 a {
-  color: var(--neutral-700);
 }
 
 main section ul {

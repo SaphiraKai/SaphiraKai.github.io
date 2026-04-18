@@ -294,6 +294,11 @@ main section {
   border-radius: 1rem;
 }
 
+main section:not(:has(.horizontal-sections)) h1,
+main section:not(:has(.horizontal-sections)) h2 {
+  border-bottom: 2px solid var(--neutral-600);
+}
+
 main section h1::before,
 main section h2::before {
   content: "¶";
@@ -322,10 +327,11 @@ main section h2 a:hover {
   text-decoration: none;
 }
 
-main section h1,
-main section h2,
-main section h3 {
-  line-height: 2rem;
+main section:not(:has(.horizontal-sections)) h1,
+main section:not(:has(.horizontal-sections)) h2,
+main section:not(:has(.horizontal-sections)) h3 {
+  padding: 1rem 0rem;
+  margin: 0;
 }
 
 main section h3 {

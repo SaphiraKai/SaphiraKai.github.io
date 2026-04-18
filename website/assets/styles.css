@@ -1,3 +1,4 @@
+/*
 :root {
   --primary: #FF439B;
   --accent: #FAFF5C;
@@ -7,6 +8,41 @@
   --text-pink: #FFD0E6;
   --text-blue: #D2D0FF;
 }
+*/
+
+:root {
+  --neutral-100: oklch(98% 0.01 234deg);
+  --neutral-200: oklch(86% 0.07 262deg);
+  --neutral-300: oklch(74% 0.08 264deg);
+  --neutral-400: oklch(62% 0.08 264deg);
+  --neutral-500: oklch(50% 0.08 264deg);
+  --neutral-600: oklch(40% 0.07 264deg);
+  --neutral-700: oklch(30% 0.05 264deg);
+  --neutral-800: oklch(20% 0.04 264deg);
+  --neutral-900: oklch(10% 0.03 264deg);
+
+  --primary-100: oklch(97% 0.02 345deg);
+  --primary-200: oklch(90% 0.06 355deg);
+  --primary-300: oklch(84% 0.1 357deg);
+  --primary-400: oklch(77% 0.15 358deg);
+  --primary-500: oklch(70% 0.21 358deg);
+  --primary-600: oklch(58% 0.23 1deg);
+  --primary-700: oklch(42% 0.17 2deg);
+  --primary-800: oklch(27% 0.11 3deg);
+  --primary-900: oklch(11% 0.04 7deg);
+
+  --accent-100: oklch(97% 0.07 101deg);
+  --accent-200: oklch(95% 0.1 98deg);
+  --accent-300: oklch(93% 0.12 96deg);
+  --accent-400: oklch(91% 0.15 95deg);
+  --accent-500: oklch(89% 0.17 94deg);
+  --accent-600: oklch(70% 0.14 86deg);
+  --accent-700: oklch(50% 0.1 85deg);
+  --accent-800: oklch(30% 0.06 82deg);
+  --accent-900: oklch(10% 0.02 67deg);
+}
+
+
 
 img {
   max-width: 100%;
@@ -14,6 +50,7 @@ img {
 }
 
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
 
@@ -21,9 +58,9 @@ body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
-  background-color: var(--background-dark);
+  background-color: var(--neutral-800);
   font-family: "Lexend", sans-serif;
-  color: var(--text-blue);
+  color: var(--neutral-200);
 }
 
 ul {
@@ -31,8 +68,18 @@ ul {
 }
 
 a {
-  color: var(--primary);
+  color: var(--neutral-200);
   text-decoration: underline;
+  text-decoration-color: var(--primary-400);
+  text-decoration-thickness: 2px;
+  transition: color 0.05s ease-out;
+}
+
+a:hover {
+  color: var(--primary-200);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-400);
+  text-decoration-thickness: 2px;
 }
 
 #titlebar {
@@ -46,7 +93,7 @@ a {
   box-sizing: border-box;
   height: 4rem;
   line-height: 2.5rem;
-  background-color: var(--primary);
+  background-color: var(--primary-500);
   box-shadow: #000000A0 0 0 1.5rem;
 }
 
@@ -57,7 +104,7 @@ a {
 #titlebar h1 {
   text-wrap: nowrap;
   display: none;
-  color: var(--background);
+  color: var(--neutral-800);
 }
 
 #titlebar nav {
@@ -73,7 +120,7 @@ a {
   content: "";
   height: 100%;
   width: 3rem;
-  background: linear-gradient(to right, var(--primary), transparent);
+  background: linear-gradient(to right, var(--primary-500), transparent);
 }
 
 #titlebar nav::after {
@@ -83,7 +130,7 @@ a {
   content: "";
   height: 100%;
   width: 3rem;
-  background: linear-gradient(to left, var(--primary), transparent);
+  background: linear-gradient(to left, var(--primary-500), transparent);
 }
 
 #titlebar nav ul {
@@ -106,14 +153,16 @@ a {
   text-align: center;
   font-size: 1.15rem;
   text-decoration: none;
-  color: var(--text-pink);
+  text-decoration-color: white;
+  color: var(--primary-800);
   transition: color 0.1s ease-out;
 }
 
 #titlebar nav ul a:hover,
-#titlebar nav ul a:focus {
+#titlebar nav ul a:hover {
   color: white;
   text-decoration: underline;
+  text-decoration-color: white;
   text-decoration-thickness: 2px;
 }
 
@@ -122,17 +171,26 @@ h2,
 h3 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
-  color: var(--text-pink)
+  color: var(--neutral-100)
 }
 
 h1 {
+  font-size: 2rem;
   font-weight: 600;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 #hero {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-dark);
+  background-color: var(--neutral-800);
   padding: 2rem;
   margin: -1rem -1rem 0 -1rem;
   min-height: calc(100vh - 4rem);
@@ -153,9 +211,9 @@ h1 {
 
 #hero .button {
   white-space: nowrap;
-  background-color: var(--background-dark);
-  border: solid 2px var(--accent);
-  color: var(--accent);
+  background-color: var(transparent);
+  border: solid 2px var(--accent-400);
+  color: var(--accent-400);
   font-family: "Ubuntu", sans-serif;
   font-size: 1.15rem;
   font-weight: 500;
@@ -172,13 +230,13 @@ h1 {
 #hero .button:hover,
 #hero .button:focus {
   transform: translateY(-0.1rem);
-  color: var(--background);
-  background-color: var(--accent);
+  color: var(--neutral-800);
+  background-color: var(--accent-400);
 }
 
 #hero .button:active {
   transform: translateY(0.15rem);
-  opacity: 75%;
+  opacity: 67%;
 }
 
 #hero aside {
@@ -214,8 +272,12 @@ h1 {
   animation: fade-in ease 1s both;
 }
 
+#mission {
+  color: var(--neutral-200);
+}
+
 #vision {
-  color: var(--text-blue);
+  color: var(--neutral-400);
   animation-delay: 0.25s;
 }
 
@@ -224,7 +286,7 @@ main {
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
-  background-color: var(--background);
+  background-color: var(--neutral-700);
 }
 
 main section {
@@ -232,10 +294,38 @@ main section {
   border-radius: 1rem;
 }
 
+main section h1::before,
+main section h2::before {
+  position: absolute;
+  content: "¶";
+  color: transparent;
+  text-decoration: none;
+  transition: color 0.1s ease-out;
+  transform: translateX(-1.5rem);
+}
+
+main section h1:hover::before,
+main section h2:hover::before {
+  color: var(--accent-300);
+  text-decoration: none;
+}
+
+main section h1 a,
+main section h2 a {
+  color: var(--neutral-200);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main section h1 a:hover,
+main section h2 a:hover {
+  color: var(--accent-200);
+  text-decoration: none;
+}
+
 main section h1,
 main section h2,
 main section h3 {
-  padding-left: 1rem;
   line-height: 2rem;
 }
 
@@ -251,35 +341,44 @@ main section:target:has(.horizontal-sections) {
   animation: anchor-highlight-solid 0.75s ease;
 }
 
-main section:has(.horizontal-sections) h1,
-main section:has(.horizontal-sections) h2,
 main section:has(.horizontal-sections) h3 {
   padding-left: 0;
-  color: var(--background);
+  color: var(--neutral-700);
   font-weight: bold;
 }
 
-main section:has(.horizontal-sections) a {
-  color: var(--background);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-decoration-color: var(--accent);
+main section:has(.horizontal-sections) h1 a,
+main section:has(.horizontal-sections) h2 a,
+main section:has(.horizontal-sections) h3 a {
+  padding-left: 0;
+  color: var(--neutral-700);
+  font-weight: bold;
 }
 
-main section:target h1,
-main section:target h2 {
-  color: white;
+main section:has(.horizontal-sections) li a {
+  color: var(--neutral-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--accent-300);
+}
+
+main section:has(.horizontal-sections) li:hover a {
+  color: var(--accent-200);
+}
+
+main section:target h1 a,
+main section:target h2 a {
+  color: var(--accent-100);
   text-decoration: underline;
   /* apparently this property is only supported on Firefox
   text-decoration-inset: 0.75rem; */
-  text-decoration-thickness: 2px;
-  text-decoration-color: var(--accent);
-  padding-left: 2rem;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--accent-300);
 }
 
-main section:target:has(.horizontal-sections) h1,
-main section:target:has(.horizontal-sections) h2 {
-  color: var(--background);
+main section:target:has(.horizontal-sections) h1 a,
+main section:target:has(.horizontal-sections) h2 a {
+  color: var(--neutral-700);
 }
 
 main section ul {
@@ -291,12 +390,17 @@ main section ul {
 main section:has(.horizontal-sections) {
   margin: 0;
   border-radius: 0;
-  background-color: var(--primary);
-  color: var(--background);
+  background-color: var(--primary-500);
+  color: var(--neutral-700);
 }
 
 #about p {
   font-size: 1.25rem;
+  color: var(--neutral-300);
+}
+
+#about p b {
+  color: var(--neutral-200);
 }
 
 #skills {
@@ -319,7 +423,7 @@ main section:has(.horizontal-sections) {
 .horizontal-sections .spacer {
   min-width: 2px;
   min-height: 2px;
-  border-right: 2px var(--background) dashed;
+  border-right: 2px var(--neutral-700) dashed;
   opacity: 25%;
   margin: 0;
   padding: 0;
@@ -329,12 +433,12 @@ footer {
   padding: 1rem 0;
   text-align: center;
   font-style: italic;
-  background-color: var(--background-dark);
+  background-color: var(--neutral-800);
 }
 
 @keyframes anchor-highlight {
   0% {
-    background-color: #ffffff20;
+    background-color: oklch(from var(--accent-100) l c h / 20%);
   }
 
   100% {
@@ -344,11 +448,11 @@ footer {
 
 @keyframes anchor-highlight-solid {
   0% {
-    background-color: #ffffffa0;
+    background-color: oklch(from var(--accent-100) l c h / 50%);
   }
 
   100% {
-    background-color: var(--primary);
+    background-color: var(--primary-500);
   }
 }
 

@@ -188,7 +188,7 @@ a:hover {
   font-size: 1.15rem;
   text-decoration: none;
   text-decoration-color: white;
-  color: var(--primary-800);
+  color: var(--neutral-800);
   transition: color 0.1s ease-out;
 }
 

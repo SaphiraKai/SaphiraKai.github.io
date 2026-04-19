@@ -147,6 +147,7 @@ a:hover {
 }
 
 #titlebar nav::before {
+  pointer-events: none;
   position: absolute;
   top: 0;
   content: "";
@@ -156,6 +157,7 @@ a:hover {
 }
 
 #titlebar nav::after {
+  pointer-events: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -373,6 +375,7 @@ main section:target:not(:has(.horizontal-sections)) {
 }
 
 main section:target:has(.horizontal-sections)::after {
+  pointer-events: none;
   top: 0;
   left: 0;
   border-radius: inherit;

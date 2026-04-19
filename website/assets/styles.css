@@ -214,7 +214,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 2rem;
 }
 
 h3 {
@@ -558,11 +558,6 @@ footer {
   #titlebar img {
     display: block;
   }
-
-  #mission,
-  #vision {
-    font-size: 2.5rem;
-  }
 }
 
 @media (min-width: 768px) {
@@ -646,15 +641,20 @@ footer {
     display: block;
   }
 
+  #mission,
+  #vision {
+    font-size: 2.5rem;
+  }
+
   .horizontal-sections {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  main section {
-    max-width: 768px;
-  }
-
   #hero aside img {
     max-width: 33vw;
+  }
+
+  main section {
+    max-width: 768px;
   }
 }

@@ -82,6 +82,38 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+.button {
+  white-space: nowrap;
+  background-color: transparent;
+  border: solid 2px var(--neutral-500);
+  color: var(--neutral-500);
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1em;
+  width: fit-content;
+  transition: all 0.15s ease-out;
+  place-self: center;
+  text-decoration: none;
+  background-image: linear-gradient(in oklch 30deg, var(--primary-400), var(--primary-300));
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  background-position: top;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-0.25rem);
+  color: var(--neutral-800);
+  border: solid 2px var(--primary-300);
+  background-size: 100% 100%;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(0.25rem);
+  opacity: 75%;
+}
+
 #titlebar {
   z-index: 999;
   position: sticky;
@@ -169,7 +201,7 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Questrial", sans-serif;
   font-weight: 500;
   color: var(--neutral-100)
 }
@@ -180,7 +212,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 2.25rem;
 }
 
 h3 {
@@ -210,20 +242,16 @@ h3 {
 }
 
 #hero .button {
-  white-space: nowrap;
-  background-color: transparent;
   border: solid 2px color-mix(in oklch, var(--accent-300), var(--accent-400));
   color: color-mix(in oklch, var(--accent-300), var(--accent-400));
-  font-family: "Ubuntu", sans-serif;
-  font-size: 1.25rem;
+  font-family: "Questrial", sans-serif;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-top: 4rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 2rem;
-  width: fit-content;
-  transition: all 0.15s ease-out;
-  place-self: center;
-  text-decoration: none;
+  background-image: linear-gradient(in oklch 30deg, var(--accent-400), var(--accent-300));
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  background-position: top;
   animation-delay: 0.5s;
 }
 
@@ -231,13 +259,15 @@ h3 {
 #hero .button:focus {
   transform: translateY(-0.25rem);
   color: var(--neutral-800);
-  background-color: color-mix(in oklch, var(--accent-300), var(--accent-400));
+  background-color: transparent;
+  background-size: 100% 100%;
 }
 
 #hero .button:active {
   transform: translateY(0.25rem);
   opacity: 67%;
 }
+
 
 #hero aside {
   box-sizing: border-box;
@@ -286,7 +316,7 @@ main {
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
-  background-color: var(--neutral-700);
+  background: linear-gradient(in srgb to bottom, var(--neutral-700), color-mix(in oklch, var(--neutral-700), var(--neutral-800) 67%));
 }
 
 main section {
@@ -338,12 +368,20 @@ main section h3 {
   margin-bottom: 0;
 }
 
-main section:target {
+main section:target:not(:has(.horizontal-sections)) {
   animation: anchor-highlight 0.75s ease;
 }
 
-main section:target:has(.horizontal-sections) {
-  animation: anchor-highlight-solid 0.75s ease;
+main section:target:has(.horizontal-sections)::after {
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  display: block;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  animation: anchor-highlight 0.75s ease;
 }
 
 main section:target:has(.horizontal-sections) h1 a,
@@ -380,6 +418,7 @@ main section:has(.horizontal-sections) li a {
 
 main section:has(.horizontal-sections) li:hover a {
   color: var(--accent-200);
+  font-weight: 500;
 }
 
 main section:target h1 a,
@@ -399,6 +438,7 @@ main section ul {
 }
 
 main section:has(.horizontal-sections) {
+  position: relative;
   margin: 0;
   border-radius: 0;
   background-color: var(--primary-500);
@@ -415,7 +455,8 @@ main section:has(.horizontal-sections) {
 }
 
 #skills {
-  margin: -1rem;
+  margin: 0rem -1rem;
+
 }
 
 .horizontal-sections {
@@ -441,6 +482,7 @@ main section:has(.horizontal-sections) {
 }
 
 footer {
+  color: var(--neutral-500);
   padding: 1rem 0;
   text-align: center;
   font-style: italic;
@@ -453,7 +495,7 @@ footer {
   }
 
   100% {
-    background-color: transparent;
+    background-color: oklch(from transparent);
   }
 }
 
@@ -496,9 +538,12 @@ footer {
 
   25% {
     z-index: 0;
-    transform: translateY(15%) rotateX(-15deg);
-    filter: blur(0.5rem);
     opacity: 0;
+  }
+
+  28% {
+    transform: translateY(20%) rotateX(-20deg);
+    filter: blur(0.5rem);
   }
 
   100% {
@@ -513,7 +558,7 @@ footer {
 
   #mission,
   #vision {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 }
 

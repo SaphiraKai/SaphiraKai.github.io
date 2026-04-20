@@ -393,10 +393,12 @@ main section:has(.horizontal-sections) h3 a {
   font-weight: bold;
 }
 
-main section:has(.horizontal-sections) h1 a:hover,
-main section:has(.horizontal-sections) h2 a:hover,
-main section:has(.horizontal-sections) h3 a:hover {
+main section:has(.horizontal-sections) h2 a:hover {
   color: var(--neutral-600);
+}
+
+main section:target:has(.horizontal-sections) h2 a:hover {
+  color: color-mix(in oklch, var(--accent-100), var(--neutral-100));
 }
 
 main section:has(.horizontal-sections) li a {
@@ -413,7 +415,7 @@ main section:has(.horizontal-sections) li:hover a {
 
 main section:target h1 a,
 main section:target h2 a {
-  color: color-mix(in oklch, var(--accent-100), var(--neutral-100), 50%);
+  color: color-mix(in oklch, var(--accent-100), var(--neutral-100));
   text-decoration: underline;
   /* apparently this property is only supported on Firefox
   text-decoration-inset: 0.75rem; */

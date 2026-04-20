@@ -619,6 +619,10 @@ footer {
     width: max-content;
   }
 
+  .carousel {
+    margin: 0;
+  }
+
   footer {
     padding: 2rem 0;
   }
@@ -649,6 +653,11 @@ footer {
 }
 
 .carousel {
+  position: relative;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -656,6 +665,7 @@ footer {
 }
 
 .card {
+  min-width: 16rem;
   border: 2px solid var(--neutral-600);
   border-radius: 1rem;
   background-color: var(--neutral-700);
